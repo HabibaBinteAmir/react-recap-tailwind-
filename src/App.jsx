@@ -1,5 +1,7 @@
+import { useState } from "react"
 
 function App() {
+   const [open, setOpen] = useState(false)
   return (
     <>
     <div className="flex items-center justify-between
@@ -14,17 +16,18 @@ function App() {
         <span>Blog</span>
         <span>Contact</span>
       </div>
-     <button className="text-2xl cursor-pointer ">|||</button>
+     <button className="sm:hidden text-2xl cursor-pointer " onClick={()=> setOpen(!open)}>|||</button>
+
      
-      {/* mobile */}
-      <div className="flex gap-2 font-medium ">
-        <span className="hover:text-sky-200 hover:font-semibold">Home</span>
+
+    </div>
+     {/* mobile */}
+      { open && (<div className=" flex flex-col gap-5 font-bold text-2xl p-10 min-h-screen bg-slate-900 text-white   ">
+        <span className="">Home</span>
         <span>About</span>
         <span>Blog</span>
         <span>Contact</span>
-      </div>
-
-    </div>
+      </div>)}
     <div className=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3  text-center font-semibold text-2xl sm:text-lg mb-4">
       <div className="bg-slate-500 p-4 m-2  text-white rounded-md shadow-amber-400 hover:scale-105 transition-all duration-300 ">feature one</div>
       <div className="bg-slate-500 p-4 m-2  text-white rounded-md shadow-amber-400 hover:scale-105 transition-all duration-300 ">feature two</div>
